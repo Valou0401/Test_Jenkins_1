@@ -1,5 +1,5 @@
 # Test_Jenkins_1
-Create a simple pipeline to build app.py in a jenkins project on docker container.
+Create a simple pipeline to build script.py in a jenkins project on docker container.
 
 1. install and launch the jenkins/jenkins image from dockerHub in a docker container :
 

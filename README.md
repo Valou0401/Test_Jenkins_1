@@ -16,13 +16,13 @@ docker run --name jenkins-docker --detach \
   --volume jenkins-data:/var/jenkins_home \
   --publish 2376:2376 docker:dind --storage-driver overlay2
 ```
---privileged : L'exécution de Docker dans Docker nécessite actuellement un accès privilégié pour fonctionner correctement.
---network jenkins : Cela correspond au réseau créé à l'étape précédente.
---network-alias docker : Rend le Docker in Docker disponible en tant que nom d'hôte docker au sein du réseau jenkins.
---env DOCKER_TLS_CERTDIR=/certs : 	Active l'utilisation de TLS dans le serveur Docker. En raison de l'utilisation d'un conteneur privilégié, c'est recommandé, bien que cela nécessite l'utilisation du volume partagé décrit ci-dessous. Cette variable d'environnement contrôle le répertoire racine dans lequel les certificats Docker TLS sont gérés.
---volume jenkins-docker-certs:/certs/client : volume de sauvegarde
---volume jenkins-data:/var/jenkins-home  : volume de sauvegarde
---storage-driver overlay2 : 	Le pilote de stockage pour le volume Docker. 
+--privileged : L'exécution de Docker dans Docker nécessite actuellement un accès privilégié pour fonctionner correctement.  
+--network jenkins : Cela correspond au réseau créé à l'étape précédente.  
+--network-alias docker : Rend le Docker in Docker disponible en tant que nom d'hôte docker au sein du réseau jenkins.  
+--env DOCKER_TLS_CERTDIR=/certs : 	Active l'utilisation de TLS dans le serveur Docker. En raison de l'utilisation d'un conteneur privilégié, c'est recommandé, bien que cela nécessite l'utilisation du volume partagé décrit ci-dessous. Cette variable d'environnement contrôle le répertoire racine dans lequel les certificats Docker TLS sont gérés.     
+--volume jenkins-docker-certs:/certs/client : volume de sauvegarde   
+--volume jenkins-data:/var/jenkins-home  : volume de sauvegarde    
+--storage-driver overlay2 : 	Le pilote de stockage pour le volume Docker.     
 
 3. Créer un Dockerfile pour l'image docker de jenkins/jenkins : 
 

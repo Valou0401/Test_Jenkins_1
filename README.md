@@ -59,7 +59,7 @@ docker build -t myjenkins-blueocean:1.1
   myjenkins-blueocean:1.1
 ```
 6. Récupérer le code d'initialisation de Jenkins dans 
-```sh docker logs jenkins-blueocean```
+```docker logs jenkins-blueocean```
 7. Créer un pipeline puis executer le Jenkinsfile suivant : 
 
 ```sh
